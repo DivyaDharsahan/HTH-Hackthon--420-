@@ -17,6 +17,15 @@ MAX_SEQ_LENGTH = 20
 NUM_FEATURES = 2048
 SEQ_LENGTH = 20
 
+UPLOAD_FOLDER = 'static/uploads/'
+
+# Ensure the directory exists
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+
 @app.route('/')
 def upload_form():
     return render_template('upload.html')
